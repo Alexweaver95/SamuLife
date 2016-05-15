@@ -64,13 +64,21 @@ GameOfLife::GameOfLife ( int w, int h ) : m_w ( w ), m_h ( h )
         lattice[i][j] = false;
       }
 
-  glider ( lattice, 2*m_w/5, 2*m_h/5 );
-  glider ( lattice, 3*m_w/5, 3*m_h/5 );
-  glider ( lattice, 4*m_w/5, 4*m_h/5 );
-  glider ( lattice, 4*m_w/5, 2*m_h/5 );
-  glider ( lattice, 2*m_w/5, 4*m_h/5 );
+ /*glider ( lattice, 2*m_w/5, 2*m_h/5 );
+ glider ( lattice, 3*m_w/5, 3*m_h/5 );
+ glider ( lattice, 4*m_w/5, 4*m_h/5 );
+ glider ( lattice, 4*m_w/5, 2*m_h/5 );
+ glider ( lattice, 2*m_w/5, 4*m_h/5 );*/
+
+// spaceship négyszög:
+  spaceship(lattice,34,14);
+  proba3(lattice,34,13);
+  proba3(lattice,0,13);
+  spaceship(lattice,0,14);
+  proba(lattice,19,20);
 
 }
+
 
 bool ** GameOfLife::lattice()
 {
@@ -196,14 +204,63 @@ GameOfLife::~GameOfLife()
 
 }
 
-void GameOfLife::glider ( bool **lattice, int x, int y )
+void GameOfLife::proba(bool **lattice, int x, int y) 
 {
 
+  
+  lattice[y+1][x+3] = true;
+  lattice[y+3][x+3] = true;             // 4 prögő cucc
+  lattice[y+2][x+3] = true;
+  lattice[y+2][x+2] = true;
+
+
+  
+}
+
+void GameOfLife::proba3(bool **lattice, int x, int y) 
+{
+  lattice[y + 4][x + 5] = true;
+  lattice[y + 5][x + 5] = true;
+  lattice[y + 6][x + 4] = true;
+  lattice[y + 6][x + 6] = true;
+  lattice[y + 7][x + 5] = true;
+  lattice[y + 8][x + 5] = true;
+  lattice[y + 9][x + 5] = true;
+  lattice[y + 10][x + 5] = true;
+  lattice[y + 12][x + 5] = true;
+  lattice[y + 13][x + 5] = true;
+  lattice[y + 11][x + 4] = true;
+  lattice[y + 11][x + 6] = true;
+}
+
+void GameOfLife::spaceship ( bool **lattice, int y,int x)
+{
+  lattice[y + 5][x + 4] = true;
+  lattice[y + 5][x + 5] = true;
+  lattice[y + 4][x + 6] = true;
+  lattice[y + 6][x + 6] = true;
+  lattice[y + 5][x + 7] = true;
+  lattice[y + 5][x + 8] = true;
+  lattice[y + 5][x + 9] = true;
+  lattice[y + 5][x + 10] = true;
+  lattice[y + 5][x + 12] = true;
+  lattice[y + 5][x + 13] = true;
+  lattice[y + 4][x + 11] = true;
+  lattice[y + 6][x + 11] = true;
+}
+
+void GameOfLife::glider ( bool **lattice, int x, int y )
+{
+ 
   lattice[y+0][x+2] = true;
   lattice[y+1][x+1] = true;
   lattice[y+2][x+1] = true;
   lattice[y+2][x+2] = true;
   lattice[y+2][x+3] = true;
+  
+ 
+
+
 
 }
 

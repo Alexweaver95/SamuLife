@@ -41,13 +41,15 @@ class GameOfLife : public QThread
     Q_OBJECT
 
     int m_w {40}, m_h {30};
-
     bool ***lattices;
     int latticeIndex;
     void development();
     int  numberOfNeighbors ( bool **lattice,
                              int r, int c, bool s );
     void glider ( bool **lattice, int x, int y );
+    void spaceship ( bool **lainttice, int x, int y);
+    void proba3 ( bool **lattice, int x, int y);
+    void proba ( bool **lattice, int x, int y);
 
     bool **predictions;
     void learning();

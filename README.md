@@ -2,6 +2,8 @@
 [Samu](http://arxiv.org/abs/1511.02889) (Nahshon) has learnt the rules of Conway's Game of Life. This is 
 an example of the paper entitled "Samu in his prenatal development".
 
+This project is a fork of the https://github.com/nbatfai/SamuLife repository. It is used for an exercise of the "Hight level programming languages" course!
+
 This project uses the same COP-based Q-learning engine as Samu ([Nahshon](https://github.com/nbatfai/nahshon)) to predict the next sentences of a conversation. 
 
 ## Experiments
